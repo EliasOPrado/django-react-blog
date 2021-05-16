@@ -10,13 +10,7 @@ function Form() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!value) return;
-    axios.post("http://127.0.0.1:8001/api/article/", value, {
-        headers: {
-          "content-type": "application/json",
-        }})
-      .then((resp) => resp.json())
-      .then((resp) => console.log("RES JSON ==>", resp.data))
-      .catch((error) => console.log(error));
+    insertArticle(value)
     setValue({ title: "", article: "" });
   };
   const handleChange = (e) => {
@@ -28,18 +22,15 @@ function Form() {
     }));
   };
   console.log(value)
-//   const insertArticle = async (body) => {
-//     axios.post("http://127.0.0.1:8001/api/article/", {
-//         method: "POST",
-//         headers: {
-//           "content-type": "application/json",
-//           'Authorization': null
-//         },
-//        body:JSON.stringify(body)})
-//       .then((resp) => resp.json())
-//       .then((resp) => console.log("RES JSON ==>", resp.data))
-//       .catch((error) => console.log(error));
-//   };
+  const insertArticle = async (body) => { // try this today
+    axios.post("http://127.0.0.1:8001/api/article/", body, {
+        headers: {
+          "content-type": "application/json",
+        }})
+      .then((resp) => resp.json())
+      .then((resp) => console.log("RES JSON ==>", resp.data))
+      .catch((error) => console.log(error));
+  };
   return (
     <div className="row">
       <div className="col-md-9 mx-auto">
