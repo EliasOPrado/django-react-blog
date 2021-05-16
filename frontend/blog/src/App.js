@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import List from "./List";
 import Nav from "./Nav";
+import Form from "./Form"
 import "./App.css";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
       <br/>
       <br/>
       <div className="container">
+      <Form />
         <h1 className="mt-4 mb-3">
           Blog Home One
           <small>Subheading</small>
