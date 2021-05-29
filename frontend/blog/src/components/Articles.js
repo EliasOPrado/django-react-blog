@@ -2,26 +2,10 @@
 import React, { useState, useEffect } from "react";
 import List from "./List";
 
-function Articles() {
-    const [articles, setArticles] = useState([]);
+function Articles({articles}) {
+    
 
-  const getResult = async () => {
-    fetch("http://127.0.0.1:8001/api/article/", {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-      },
-    })
-      .then((resp) => resp.json())
-      .then((resp) => setArticles(resp))
-      .catch((error) => console.log(error));
-  };
-  console.log("REQUEST ==>", articles);
-
-
-  useEffect(() => {
-    getResult();
-  }, []);
+  
     return (
         <div className="container">
       

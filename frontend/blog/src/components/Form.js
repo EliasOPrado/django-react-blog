@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import axios from 'axios'
 
-function Form() {
+function Form(props) {
   const [value, setValue] = useState({
     title: "",
     article: "",
@@ -31,8 +31,13 @@ function Form() {
       .then((resp) => console.log("RES JSON ==>", resp.data))
       .catch((error) => console.log(error));
   };
+
+  const refreshPage = ()=>{
+    window.location.reload();
+ }
   return (
-    <div className="row">
+    <div className="container h-100">
+    <div className="row align-items-center">
       <div className="col-md-9 mx-auto">
         <form onSubmit={handleSubmit}>
           <br />
@@ -59,11 +64,12 @@ function Form() {
               placeholder="Add the text.."
             ></textarea>
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary" onClick={refreshPage}>
               Submit
             </button>
         </form>
       </div>
+    </div>
     </div>
   );
 }
