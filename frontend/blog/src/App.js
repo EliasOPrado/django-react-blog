@@ -21,6 +21,8 @@ function App() {
   };
   console.log("REQUEST ==>", articles);
 
+  
+
   useEffect(() => {
     getResult();
   }, []);
@@ -29,16 +31,20 @@ function App() {
     setArticles("add-article");
   };
 
-  
+
   return (
     <div className="App">
       <React.Fragment>
-      <Nav addArticle={triggerAddArticleBtn} />
+        <Nav addArticle={triggerAddArticleBtn} />
       </React.Fragment>
       <br />
       <br />
-      
-      {articles === "add-article" ? <Form /> : <Articles articles={articles} />}
+
+      {articles === "add-article" ? (
+        <Form />
+      ) : (
+        <Articles articles={articles} />
+      )}
     </div>
   );
 }

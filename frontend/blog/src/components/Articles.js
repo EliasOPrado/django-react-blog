@@ -5,7 +5,7 @@ import List from "./List";
 function Articles({articles}) {
     
 
-  
+
     return (
         <div className="container">
       

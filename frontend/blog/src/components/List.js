@@ -1,6 +1,25 @@
 import React from "react";
 
 function List({ list, index }) {
+
+
+  const DeleteArticle = (list) => {
+    return fetch(`http://127.0.0.1:8001/api/article/${list}/`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+      },
+    });
+  };
+
+  const deleteBtn = (list) => {
+    DeleteArticle(list.id,)
+    .then(() => {
+        deleteBtn(list)
+    })
+    .catch(error => console.log(error))
+}
+  
   return (
     <div class="card mb-4">
       <img
@@ -19,7 +38,7 @@ function List({ list, index }) {
           </div>
           <br />
           <div>
-            <a onClick='' class="btn btn-danger">
+            <a onClick={() => {deleteBtn(list); window.location.reload()}} class="btn btn-danger">
               Delete 
             </a>
           </div>
